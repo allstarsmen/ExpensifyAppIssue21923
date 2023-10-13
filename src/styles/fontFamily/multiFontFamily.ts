@@ -1,5 +1,8 @@
 import {multiBold} from './bold';
 import FontFamilyStyles from './types';
+import getOperatingSystem from '../../libs/getOperatingSystem';
+import CONST from '../../CONST';
+import _ from 'lodash';
 
 // In windows and ubuntu, we need some extra system fonts for emojis to work properly
 // otherwise few of them will appear as black and white
@@ -15,5 +18,9 @@ const fontFamily: FontFamilyStyles = {
     MONOSPACE_BOLD: 'ExpensifyMono-Bold, Segoe UI Emoji, Noto Color Emoji',
     MONOSPACE_BOLD_ITALIC: 'ExpensifyMono-Bold, Segoe UI Emoji, Noto Color Emoji',
 };
+
+if (getOperatingSystem() === CONST.OS.WINDOWS) {
+    _.each(fontFamily, (v, k) => fontFamily[k as keyof FontFamilyStyles] = 'ExpensifySegoe-UI-Emoji, ' + v)
+}
 
 export default fontFamily;

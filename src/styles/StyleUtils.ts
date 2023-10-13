@@ -614,6 +614,19 @@ function getEmojiPickerStyle(isSmallScreenWidth: boolean): ViewStyle | CSSProper
 }
 
 /**
+ * Gives the width for Emoji row
+ */
+function getEmojiRowStyle(isSmallScreenWidth: boolean): ViewStyle | CSSProperties {
+    if (isSmallScreenWidth) {
+        return { };
+    }
+    return {
+        ...styles.overflowHidden,
+        width: CONST.EMOJI_PICKER_SIZE.WIDTH - (styles.ph4.paddingHorizontal * 2),
+    };
+}
+
+/**
  * Generate the styles for the ReportActionItem wrapper view.
  */
 function getReportActionItemStyle(isHovered = false): ViewStyle | CSSProperties {
@@ -1380,4 +1393,5 @@ export {
     getTransparentColor,
     getEReceiptColorStyles,
     getEReceiptColorCode,
+    getEmojiRowStyle,
 };

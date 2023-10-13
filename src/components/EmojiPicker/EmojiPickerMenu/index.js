@@ -533,6 +533,7 @@ class EmojiPickerMenu extends Component {
                     stickyHeaderIndices={this.state.headerIndices}
                     getItemLayout={this.getItemLayout}
                     contentContainerStyle={styles.flexGrow1}
+                    columnWrapperStyle={StyleUtils.getEmojiRowStyle(this.props.isSmallScreenWidth)}
                     ListEmptyComponent={<Text style={[styles.textLabel, styles.colorMuted]}>{this.props.translate('common.noResultsFound')}</Text>}
                 />
                 <EmojiSkinToneList
